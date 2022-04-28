@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SalesCalculator {
     public class SalesCounter {
-        private List<Sale> _sales; //csvファイルから読み込んだデータ
+        private IEnumerable<Sale> _sales; //csvファイルから読み込んだデータ
 
         //コンストラクタ
         public SalesCounter(string filePath) {
@@ -15,7 +15,7 @@ namespace SalesCalculator {
         }
 
         //店舗別売り上げを求める
-        public Dictionary<string, int> GetPerStoreSales() {
+        public IDictionary<string, int> GetPerStoreSales() {
             Dictionary<string, int> dict = new Dictionary<string, int>();
             foreach (Sale sale in _sales) {
                 if (dict.ContainsKey(sale.ShopName))
@@ -26,7 +26,7 @@ namespace SalesCalculator {
             return dict;
         }
             //売り上げデータを読み込み、Saleオブジェクトのリストを返す
-            public static List<Sale> ReadSales(string filePath) {
+            public static IEnumerable<Sale> ReadSales(string filePath) {
                 List<Sale> sales = new List<Sale>();
                 string[] lines = File.ReadAllLines(filePath);
 
@@ -45,5 +45,4 @@ namespace SalesCalculator {
 
             }
         }
-    }
 }
