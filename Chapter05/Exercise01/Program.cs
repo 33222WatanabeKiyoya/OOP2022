@@ -14,9 +14,10 @@ namespace Exercise01 {
             Console.WriteLine("文字列２を入力");
             string input2 = Console.ReadLine();
 
-            if (input1 == input2) {
+            if (string.Compare(input1, input2, ignoreCase: true)== 0) {
                 Console.WriteLine("等しいです。");
             }
+
             else {
                 Console.WriteLine("等しくないです。");
 
