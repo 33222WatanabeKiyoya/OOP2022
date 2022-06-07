@@ -9,35 +9,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sample0607 {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class 乱数アプリ : Form {
+
+        Random rand = new Random();
+
+        public 乱数アプリ() {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e) {
-            
-        }
 
         private void Form1_Load(object sender, EventArgs e) {
 
+
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void pb1_Click(object sender, EventArgs e) {
 
-            if (int.Parse(tbNum2.Text) != 0) {
+            Number.Value = rand.Next(minValue: (int)min.Value, maxValue: (int)max.Value);
+        }
 
-                tbAns.Text = (int.Parse(tbNum1.Text) / int.Parse(tbNum2.Text)).ToString();
-                tbMod.Text = (int.Parse(tbNum1.Text) % int.Parse(tbNum2.Text)).ToString();
+        private void min_TextChanged(object sender, EventArgs e) {
 
-            }
+        }
 
-            else {
+        private void min_ValueChanged(object sender, EventArgs e) {
 
-                MessageBox.Show("エラー", "エラー",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-                
-            }
         }
     }
 }
