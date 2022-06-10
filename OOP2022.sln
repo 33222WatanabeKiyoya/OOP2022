@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample0603", "FormAppSample
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample0607", "FormAppSample\Sample0607\Sample0607.csproj", "{6966A477-E3B6-48CD-B115-3D026C704CAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddressBook", "FormAppSample\AddressBook\AddressBook.csproj", "{8F4AC0B2-E985-455B-8727-56B3A4FE2870}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{6966A477-E3B6-48CD-B115-3D026C704CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6966A477-E3B6-48CD-B115-3D026C704CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6966A477-E3B6-48CD-B115-3D026C704CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F4AC0B2-E985-455B-8727-56B3A4FE2870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F4AC0B2-E985-455B-8727-56B3A4FE2870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F4AC0B2-E985-455B-8727-56B3A4FE2870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F4AC0B2-E985-455B-8727-56B3A4FE2870}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,6 +165,7 @@ Global
 		{9E1CBF08-EB5F-4F87-91CE-07A8C5F6EE77} = {CABDD31C-B182-4AF3-BDF5-79B11E256CFB}
 		{BB46D4F5-CB50-4902-8ED2-DE38947ED73E} = {E389A456-FDAA-45B4-834F-2B5BD24D26CD}
 		{6966A477-E3B6-48CD-B115-3D026C704CAD} = {E389A456-FDAA-45B4-834F-2B5BD24D26CD}
+		{8F4AC0B2-E985-455B-8727-56B3A4FE2870} = {E389A456-FDAA-45B4-834F-2B5BD24D26CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEDF58C0-A704-44A0-BD89-BF4B01AB39BC}
