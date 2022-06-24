@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,7 +39,8 @@ namespace AddressBook {
                 return;
             }
 
-            Person newPerson = new Person {
+            Person newPerson = new Person
+            {
 
                 Name = tbName.Text,
                 MailAddress = tbMailAddress.Text,
@@ -45,6 +48,9 @@ namespace AddressBook {
                 Company = cbCompany.Text,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
+                KindNumber = GetRatioButtonKindNumber(),
+                TelNumber = tbTelNumber.Text,
+                Registration = dtpRegistDate.Value,
             };
 
             listPerson.Add(newPerson);
@@ -55,7 +61,25 @@ namespace AddressBook {
                 btUpdate_Click.Enabled = true;
             }
 
-            //コンボボックスに会社名を登録する
+        }
+
+        private Person.KindNumberType GetRatioButtonKindNumber() {
+
+            var selectedKindNumber = Person.KindNumberType.その他;
+
+            if (rbHome.Checked) {
+
+                selectedKindNumber = Person.KindNumberType.自宅;
+            }
+            if (rbMobile.Checked) {
+
+                selectedKindNumber = Person.KindNumberType.携帯;
+            }
+            return selectedKindNumber;
+        }
+        
+
+        private void setCbCompany(string company) {
             if (!cbCompany.Items.Contains(cbCompany.Text)) {
 
                 //まだ登録されていない登録処理
@@ -107,7 +131,7 @@ namespace AddressBook {
 
             groupCheckBoxAllClear();
 
-
+        
             foreach (var group in listPerson[index].listGroup) {
 
                 switch (group) {
@@ -132,6 +156,25 @@ namespace AddressBook {
 
                 }
             }
+
+            
+            switch (listPerson[index].KindNumber) {
+                    
+              case Person.KindNumberType.自宅:
+                rbHome.Checked = true;
+                break;
+
+              case Person.KindNumberType.携帯:
+                rbMobile.Checked = true;
+                break;
+
+              case Person.KindNumberType.その他:
+
+                break;
+                default:
+                break;
+            }
+
         }
 
         private void groupCheckBoxAllClear() {
@@ -166,7 +209,61 @@ namespace AddressBook {
             
         }
 
-        private void tbCompany_TextChanged(object sender, EventArgs e) {
+        
+
+        private void btSave_Click(object sender, EventArgs e) {
+
+            if (sfdSaveDialog.ShowDialog() == DialogResult.OK) {
+
+                try {
+
+                    //バイナリ形式でシリアル化
+                    var bf = new BinaryFormatter();
+
+                    using (FileStream fs = File.Open(sfdSaveDialog.FileName,FileMode.Create)) {
+                        bf.Serialize(fs,listPerson);
+                    }
+                }
+
+                catch (Exception ex) {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+
+        private void btOpen_Click(object sender, EventArgs e) {
+
+            if(ofdFileOpenDialog.ShowDialog() == DialogResult.OK) {
+
+                try {
+
+                    var bf = new BinaryFormatter();
+
+                    using (FileStream fs = File.Open(ofdFileOpenDialog.FileName, FileMode.Open, FileAccess.Read)) {
+
+                        //逆シリアル化して読み込む
+                        listPerson = (BindingList<Person>)bf.Deserialize(fs);
+                        dgvPersons.DataSource = null;
+                        dgvPersons.DataSource = listPerson;
+
+                    }
+                }
+
+                catch (Exception ex) {
+
+                    MessageBox.Show(ex.Message);
+
+                }
+
+                foreach(var item in listPerson) {
+                    setCbCompany(item.Company);
+                }
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
 
         }
     }
