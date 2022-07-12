@@ -71,7 +71,7 @@ namespace Section01 {
             var lines = File.ReadLines(filename);
             foreach (var line in lines)
                 Console.WriteLine(line);
-
+           
         }
     }
 }
