@@ -68,7 +68,9 @@ namespace RssReader {
 
         }
 
-    private void lbRssTitle_Click(object sender, EventArgs e) {
+        
+
+        private void lbRssTitle_Click(object sender, EventArgs e) {
 
         int index = lbRssTitle.SelectedIndex;
 

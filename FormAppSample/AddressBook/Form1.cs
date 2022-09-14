@@ -116,9 +116,7 @@ namespace AddressBook {
             pbPicture.Image = null;
         }
 
-        private void dgvPersons_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
-        }
+       
 
         private void dgvPersons_Click(object sender, EventArgs e) {
             var index = dgvPersons.CurrentRow.Index;
@@ -266,7 +264,9 @@ namespace AddressBook {
         private void Form1_Load(object sender, EventArgs e) {
 
         }
+
+        private void dgvPersons_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
     }
 }
-    
-
