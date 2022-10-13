@@ -64,16 +64,18 @@ namespace CarReportSystem {
 
         private void Form1_Load(object sender, EventArgs e) {
             try {
+                //設定ファイルを逆シリアル化（P307）して背景の色を設定
                 using (var reader = XmlReader.Create("settings.xml")) {
-
                     var serializer = new XmlSerializer(typeof(Settings));
                     settings = serializer.Deserialize(reader) as Settings;
                     BackColor = Color.FromArgb(settings.MainFormColor);
                 }
             }
             catch (Exception) {
+
             }
-            EnabledCheck();
+
+            EnabledCheck(); //マスク処理呼び出し
 
         }
 
@@ -102,8 +104,18 @@ namespace CarReportSystem {
 
 
         private void EnabledCheck() {
-            
+            if (carReportDBDataGridView.CurrentRow == null) {
+                btRevision.Enabled = false;
+                btDeleteReport.Enabled = false;
+                btSave.Enabled = false;
+            }
+            else {
+                btRevision.Enabled = true;
+                btDeleteReport.Enabled = true;
+                btSave.Enabled = true;
+   
         }
+    }
 
         private void setcbAuther(string company) {
             if (!cbAuthor.Items.Contains(company)) {
@@ -270,8 +282,12 @@ namespace CarReportSystem {
         }
 
         private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            if (cdColorSelect.ShowDialog() == DialogResult.OK) {
+                BackColor = cdColorSelect.Color;
+                settings.MainFormColor = cdColorSelect.Color.ToArgb();   //設定オブジェクトへセット
+            }
         }
+
     }
 }
 
