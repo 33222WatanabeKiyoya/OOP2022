@@ -50,6 +50,7 @@
 
         </ComboBox>
         <TextBlock x:Name="seasonTextBlock" Grid.Row="3" Grid.Column="2"/>
+
     </Grid>
 
 </Window>

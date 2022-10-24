@@ -75,7 +75,7 @@ namespace CarReportSystem {
 
             }
 
-            EnabledCheck(); //マスク処理呼び出し
+
 
         }
 
@@ -103,17 +103,6 @@ namespace CarReportSystem {
         }
 
 
-        private void EnabledCheck() {
-            if (carReportDBDataGridView.CurrentRow == null) {
-                btRevision.Enabled = false;
-                btDeleteReport.Enabled = false;
-            }
-            else {
-                btRevision.Enabled = true;
-                btDeleteReport.Enabled = true;
-
-            }
-        }
 
         private void setcbAuther(string company) {
             if (!cbAuthor.Items.Contains(company)) {
