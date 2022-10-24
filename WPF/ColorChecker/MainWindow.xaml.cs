@@ -21,5 +21,7 @@ namespace ColorChecker {
         public MainWindow() {
             InitializeComponent();
         }
+
+        
     }
 }

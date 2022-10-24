@@ -7,8 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="500">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250"/>
-        <Grid HorizontalAlignment="Left" Height="250"  VerticalAlignment="Top" Width="243" Margin="250,0,-1,0"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="AliceBlue"  HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250"/>
+        <Grid HorizontalAlignment="Left" Height="250"  VerticalAlignment="Top" Width="243" Margin="250,0,-1,0">
+            <TextBlock HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="R" VerticalAlignment="Top" Height="17" Width="9" RenderTransformOrigin="-0.337,0.378"/>
+            <TextBlock HorizontalAlignment="Left" Margin="11,102,0,0" TextWrapping="Wrap" Text="G" VerticalAlignment="Top" RenderTransformOrigin="0.009,-0.084"/>
+            <TextBlock HorizontalAlignment="Left" Margin="11,154,0,0" TextWrapping="Wrap" Text="B" VerticalAlignment="Top" Width="9" RenderTransformOrigin="1.041,-0.497"/>
+            <Slider HorizontalAlignment="Left" Margin="25,41,0,0" VerticalAlignment="Top" Width="120" Maximum="255"/>
+            <Slider HorizontalAlignment="Left" Margin="25,102,0,0" VerticalAlignment="Top" Width="120" Maximum="255"/>
+            <Slider HorizontalAlignment="Left" Margin="25,154,0,0" VerticalAlignment="Top" Width="120" ValueChanged="Slider_ValueChanged" Maximum="255"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="160,40,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.5,0.5">
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.591"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="160,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.424,0.435"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="160,149,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="73"/>
+        </Grid>
 
     </Grid>
 </Window>
