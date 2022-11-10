@@ -61,7 +61,7 @@ namespace CollarChecker {
             var color = mycolor.Color;
             var name = mycolor.Name;
 
-            
+
 
             rSlider.Value = mycolor.Color.R;
             gSlider.Value = mycolor.Color.G;
@@ -84,21 +84,24 @@ namespace CollarChecker {
                                            c.Color.B == stColor.Color.B).FirstOrDefault();
 
             stockList.Items.Insert(0, colorName?.Name ?? "R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
-                
+
         }
 
         
-       
 
 
+        /// <summary>
+        /// 色と色名を保持するクラス
+        /// </summary>
+        public class MyColor {
+            public Color Color { get; set; }
+            public string Name { get; set; }
+        }
 
-    }
+        //削除
+        private void deleteButton_Click(object sender, RoutedEventArgs e) {
 
-    /// <summary>
-    /// 色と色名を保持するクラス
-    /// </summary>
-    public class MyColor {
-        public Color Color { get; set; }
-        public string Name { get; set; }
+            stockList.Items.RemoveAt(0);
+        }
     }
 }

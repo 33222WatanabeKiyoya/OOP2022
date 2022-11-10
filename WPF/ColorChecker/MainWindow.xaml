@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CollarChecker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="700" FontSize="15" FontFamily="Segoe UI Light" Loaded="Window_Loaded">
-    <Grid>
+        Title="MainWindow" Height="350" Width="650" FontSize="15" FontFamily="Segoe UI Light" Loaded="Window_Loaded">
+    <Grid Margin="0,0,19,3">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -15,7 +15,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Name="colorArea" Grid.Row="0" Grid.Column="0" Background="AliceBlue" Margin="15"/>
+        <Label Name="colorArea" Grid.Row="0" Grid.Column="0" Background="AliceBlue" Margin="15,15,0,37"/>
 
         <Grid Grid.Column="1" Grid.Row="0">
             <Grid.RowDefinitions>
@@ -28,6 +28,7 @@
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition/>
+
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="R" Margin="3,30,3,3" HorizontalAlignment="Right"/>
@@ -56,7 +57,9 @@
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
+
             </ComboBox>
+            <Button x:Name="deleteButton" Grid.Row="3"  Content="Delete" FontSize="20" Margin="12,79,0,-67" Click="deleteButton_Click" Grid.ColumnSpan="2"/>
         </Grid>
         <Grid Grid.Column="2" Grid.Row="0">
             <Grid.RowDefinitions>
@@ -67,7 +70,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="stockButton" Grid.Row="0"  Content="STOCK" FontSize="20" Margin="10,5" Click="stockButton_Click"/>
-            <ListBox x:Name="stockList" Grid.Row="1" Margin="10"/>
+            <ListBox x:Name="stockList" Grid.Row="1" Margin="10,10,10,32"/>
+
         </Grid>
     </Grid>
 </Window>
