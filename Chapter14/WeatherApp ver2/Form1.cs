@@ -110,8 +110,7 @@ namespace WeatherApp {
              
             }
 
-            string strings = "https://weather.tsukumijima.net/api/forecast?city=" + getCode();
-            var dStrings = wc.DownloadString("https://weather.tsukumijima.net/api/forecast?city=" + getCode());
+            var dStrings = wc.DownloadString("https://weather.tsukumijima.net/api/forecast?city=" + code);
             var json = JsonConvert.DeserializeObject<Rootobject>(dStrings);
             return json;
 
